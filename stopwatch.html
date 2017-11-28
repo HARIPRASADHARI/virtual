@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <base href="/"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    <link rel="stylesheet" href="css/material-icons.css">
+    <link rel="stylesheet" href="css/angular-material-icons.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="css/weather-icons.css">
+    <script type="text/javascript" src="js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-animate.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-messages.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-aria.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-material.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-material-icons.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/controls/controller.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body ng-app="myApp" ng-cloak class="index_page">
+    <div class="tim_wraper" layout="column" layout-fill layot-align="center center" ng-controller="stopWatchDemoCtrl">
+        <div class="tim_status" layout="row" layout-padding layout-align="center center" flex="10">
+            <div ng-disabled="true" flex layout="row" layout-align="center center">
+                <md-button ng-disabled="true" class="md-icon-button">
+                    <md-icon>alarm</md-icon>
+                </md-button>
+            </div>
+            <div flex layout="row" layout-align="center center"><md-button ng-disabled="true" class="md-icon-button">
+                    <md-icon>access_time</md-icon></md-button></div>
+            <div flex layout="row" layout-align="center center"><md-button ng-disabled="true" class="md-icon-button">
+                    <md-icon>hourglass_full</md-icon></md-button></div>
+            <div flex layout="row" layout-align="center center"><md-button  class="md-icon-button ">
+                    <md-icon class="active">timer</md-icon></md-button></div>
+        </div>
+        <div bb-stopwatch options="stopwatch" flex layout="column" layout-align="space-between stretch" layout-padding >
+            <div class="tim_content" flex layout="column" layout-align="center center">
+                <div class="tim_watch tim_watch_display"   layout="row" layout-align="center center">
+                    <span>{{stopwatch.elapsedTime | mins}}</span>
+                    <span>{{stopwatch.elapsedTime | secs}}</span>
+                    <span>{{stopwatch.elapsedTime | ms}}</span>
+                </div>
+            </div>
+            <div flex="10" layout="row" layout-align="center center">
+                <md-button  class="md-icon-button refresh" aria-label="Reset" ng-show="showReset" ng-click="resetTimer(); showPlay = 1; showStop = 0; showReset = 0">
+                    <md-icon class="white">refresh</md-icon>
+                </md-button>
+            <div class="tim_action"  ng-show="showPlay" ng-click="showPlay = 0; showStop = 1; showReset = 1; startTimer()">
+                <md-button class="md-fab md-mini md-accent" aria-label="Play">
+                    <md-icon>play_arrow</md-icon>
+                </md-button>
+            </div>
+            <div class="tim_action"  ng-show="showStop" ng-click="stopTimer(); showPlay = 1; showStop = 0">
+                <md-button class="md-fab md-mini md-accent" aria-label="Stop">
+                    <md-icon>pause</md-icon>
+                </md-button>
+            </div>
+                
+            </div>
+        </div>
+        </div>
+    
+</body>
+
+</html>
